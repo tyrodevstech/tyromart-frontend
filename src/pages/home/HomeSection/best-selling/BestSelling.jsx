@@ -7,14 +7,12 @@ const BestSelling = () => {
   const {
     isLoading,
     error,
-    data: products,
+    data: productsData,
   } = useQuery("products", fetchProducts);
-
+  const products = productsData?.products;
   if (isLoading) return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;
-
-  const limitedProducts = products.slice(0, 4);
 
   return (
     <section className="best-selling my-16 relative">
@@ -29,7 +27,7 @@ const BestSelling = () => {
         </p>
       </div>
       <div className="grid grid-cols-4 container gap-4">
-        {limitedProducts?.map((product) => {
+        {products?.map((product) => {
           return <ProductCard key={product.id} product={product} />;
         })}
       </div>

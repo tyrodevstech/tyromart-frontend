@@ -5,9 +5,9 @@ import { DOMAIN_URL } from "../../constants";
 export const fetchProducts = async () => {
   console.log("Fetching Product");
   try {
-    const response = await axios.get(`${DOMAIN_URL}products/`);
+    const response = await axios.get(`${DOMAIN_URL}products?limit=8&skip=10`);
     const products = await response.data;
-    // console.log("Products: ", products);
+    console.log("Products: ", products);
     return products;
   } catch (error) {
     console.error("Error fetching product:", error);
@@ -15,13 +15,12 @@ export const fetchProducts = async () => {
   }
 };
 
-
 export const fetchProductById = async (productId) => {
   console.log("Fetching Product");
   try {
     const response = await axios.get(`${DOMAIN_URL}products/${productId}`);
     const product = response.data;
-    // console.log("Product: ", product);
+    console.log("Product: ", product);
     return product;
   } catch (error) {
     console.error("Error fetching product:", error);
