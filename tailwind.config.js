@@ -1,3 +1,4 @@
+const { nextui } = require("@nextui-org/react");
 /** @type {import('tailwindcss').Config} */
 const { nextui } = require("@nextui-org/react");
 
@@ -11,6 +12,7 @@ module.exports = {
     "./index.html",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+  prefix: "",
   prefix: "",
   theme: {
     screens: {
@@ -98,9 +100,6 @@ module.exports = {
         oswald: ["Oswald", "sans-serif"],
       },
     },
-  },
-  corePlugins: {
-    container: false,
   },
   plugins: [
     function ({ addComponents }) {

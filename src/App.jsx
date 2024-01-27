@@ -2,6 +2,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import AppRoutes from "./routes";
 import { NextUIProvider } from "@nextui-org/react";
 
+import {NextUIProvider} from "@nextui-org/react";
+
 const queryClient = new QueryClient();
 
 function App() {
