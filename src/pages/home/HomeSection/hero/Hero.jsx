@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -19,9 +20,13 @@ const Hero = () => {
                 Walk dive charts good items what’s anyway stakeholder it. Those
                 that’s call important incentivize before.
               </p>
-              <button className="mt-10 md:mb-6 lg:mt-10 border border-black px-10 py-3 text-center text-base font-medium uppercase tracking-wide hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-500">
+
+              <Link
+                to="/products"
+                className="mt-10 md:mb-6 lg:mt-10 inline-block border border-black px-10 py-3 text-center text-base font-medium uppercase tracking-wide hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-500"
+              >
                 Shop Now
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -42,7 +47,7 @@ const Hero = () => {
             </div>
 
             <div className="absolute w-full bottom-0 left-24 mb-24">
-            <img
+              <img
                 className="hover:-translate-y-2 transition-all duration-300"
                 src="https://emart.wpthemedemos.com/big-fashion/wp-content/uploads/sites/7/2022/11/Banner.webp"
                 alt="model-image-2"

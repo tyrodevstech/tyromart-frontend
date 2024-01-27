@@ -18,8 +18,8 @@ const BestSelling = () => {
 
   return (
     <section className="best-selling my-16 relative">
-      <div className="overlay absolute inset-0 bg-no-repeat bg-[position:4%_2%] bg-[length:30%_Auto] bg-[url('https://emart.wpthemedemos.com/big-fashion/wp-content/uploads/sites/7/2023/05/trending.webp')]"></div>
-      <div className="section-infos text-center mb-10">
+      <div className="section-infos text-center mb-10 group">
+        <div className="overlay absolute inset-0 -z-10 bg-no-repeat bg-[position:4%_-6%] bg-[length:32%_Auto] bg-[url('https://emart.wpthemedemos.com/big-fashion/wp-content/uploads/sites/7/2023/05/trending.webp')] group-hover:bg-[length:31%_Auto] origin-bottom-left duration-500"></div>
         <h2 className="section-title text-4xl font-normal text-neutral-800 mb-3">
           Best selling fashion items
         </h2>
