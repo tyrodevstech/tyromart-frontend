@@ -5,7 +5,6 @@ import { fetchProductById } from "../../api/products/api";
 import ProductImageGallery from "../../components/product/detail/ProductImageGallery";
 import ProductOverview from "../../components/product/detail/ProductOverview";
 import ProductDetailsTabs from "../../components/product/detail/ProductDetailsTabs";
-import TestTab from "../../components/product/detail/TabTest";
 
 const ProductDetails = () => {
   let { productId } = useParams();
@@ -49,8 +48,6 @@ const ProductDetails = () => {
             setSizeValue={setSizeValue}
           />
         </div>
-        <TestTab />
-
         <div className="flex w-full flex-col mt-16">
           <ProductDetailsTabs product={product} />
         </div>

@@ -1,11 +1,48 @@
 // ToggleGroup.js
-import React, { useState, Children, cloneElement, useEffect } from "react";
+import React, {
+  useState,
+  Children,
+  useEffect,
+  useContext,
+  createContext,
+} from "react";
+import { cva } from "class-variance-authority";
+import { cn } from "@/lib/utils";
+
+const ToggleGroupContext = createContext({
+  size: "default",
+  variant: "default",
+});
+const toggleVariants = cva(
+  "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground",
+  {
+    variants: {
+      variant: {
+        default: "bg-transparent",
+        outline:
+          "border border-input bg-transparent hover:bg-accent hover:text-accent-foreground",
+      },
+      size: {
+        default: "h-10 px-3",
+        sm: "h-9 px-2.5",
+        lg: "h-11 px-5",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+);
 
 const ToggleGroup = ({
   children,
   onItemChange,
   defaultSelected,
-  groupClassName,
+  className,
+  variant,
+  size,
+  ...props
 }) => {
   const [selectedItem, setSelectedItem] = useState(defaultSelected);
 
@@ -45,7 +82,7 @@ const ToggleGroup = ({
         handleItemChange(selectedItem);
       }
     };
-
+    onItemChange(selectedItem);
     document.addEventListener("keydown", handleKeyPress);
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
@@ -58,38 +95,46 @@ const ToggleGroup = ({
 
   return (
     <div
-      className={`flex space-x-4 ${groupClassName}`}
+      className={cn("flex items-center justify-center gap-1", className)}
       onKeyDown={handleKeyDown}
-      tabIndex="0"
+      {...props}
     >
-      {Children.map(children, (child) =>
-        cloneElement(child, {
-          isSelected: selectedItem === child.props.value,
-          onItemChange: () => handleItemChange(child.props.value),
-        })
-      )}
+      <ToggleGroupContext.Provider
+        value={{
+          variant,
+          size,
+          selectedItem,
+          setSelectedItem,
+        }}
+      >
+        {children}
+      </ToggleGroupContext.Provider>
     </div>
   );
 };
 
 const ToggleItem = ({
-  value,
-  isSelected,
-  onItemChange,
-  children,
   className,
+  value,
+  children,
+  variant,
+  size,
+  ...props
 }) => {
-  const handleItemClick = () => {
-    onItemChange(value);
-  };
-  console.log(className);
+  const context = useContext(ToggleGroupContext);
 
   return (
     <div
-      tabIndex="0"
-      className={`${className} rounded-md px-4 py-2 border cursor-pointer data-[state=on]:bg-blue-500 data-[state=on]:text-white bg-gray-200 text-gray-700 hover:bg-gray-100 `}
-      data-state={isSelected ? "on" : "off"}
-      onClick={handleItemClick}
+      className={cn(
+        toggleVariants({
+          variant: context.variant || variant,
+          size: context.size || size,
+        }),
+        className
+      )}
+      {...props}
+      data-state={context.selectedItem === value ? "on" : "off"}
+      onClick={() => context.setSelectedItem(value)}
     >
       {children}
     </div>

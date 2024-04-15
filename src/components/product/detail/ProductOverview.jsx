@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProductOptions from "./ProductOptions";
 import { ShoppingCartIcon, PlusIcon, MinusIcon, TruckIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@nextui-org/react";
 
 const ProductOverview = ({
   product,
@@ -82,12 +82,22 @@ const ProductOverview = ({
             <PlusIcon className="text-gray-500 w-4" />
           </Button>
         </div>
-        <Button variant="outline" size="xl" className="flex-1 uppercase">
+        <Button
+          variant="bordered"
+          radius="none"
+          size="lg"
+          className="flex-1 uppercase border-neutral-800"
+        >
           Add to Cart
         </Button>
       </div>
       {/* Additional Buttons */}
-      <Button variant="default" size="xl" className="my-3 w-full uppercase">
+      <Button
+        variant="solid"
+        radius="none"
+        size="lg"
+        className="my-3 w-full bg-neutral-800 text-white uppercase"
+      >
         Buy now
       </Button>
       {/* Estimated Delivery and Free Shipping */}

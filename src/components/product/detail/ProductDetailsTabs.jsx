@@ -1,26 +1,34 @@
 import React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, Tab } from "@nextui-org/react";
 
 const ProductDetailsTabs = ({ product }) => {
   return (
-    <div>
+    <>
       {/* Tabs component for description and review */}
-      <Tabs defaultValue="description">
-        <TabsList>
-          <TabsTrigger value="description">Description</TabsTrigger>
-          <TabsTrigger value="review">Review</TabsTrigger>
-        </TabsList>
-        <TabsContent value="description">
-          {product.description} Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Fugiat nihil ducimus pariatur officiis, autem
-          aperiam totam eius vero aliquid odio dicta illum enim rem magnam
-          mollitia, sit ea quas nemo vitae alias in? Aspernatur nihil molestias
-          rerum iusto veniam? Ad quia molestias molestiae voluptate amet, optio
-          totam! Illum, debitis vitae?
-        </TabsContent>
-        <TabsContent value="review">0 review.</TabsContent>
+      <Tabs
+        aria-label="Options"
+        variant="underlined"
+        classNames={{
+          tabList: "gap-6 w-full relative rounded-none",
+          cursor: "w-full bg-red-500",
+          tab: "px-0 h-12 max-w-fit",
+          tabContent: "group-data-[selected=true]:text-red-500 uppercase",
+        }}
+      >
+        <Tab key="description" title="Description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </Tab>
+        <Tab key="review" title="Review">
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </Tab>
       </Tabs>
-    </div>
+    </>
   );
 };
 

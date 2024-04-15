@@ -2,12 +2,15 @@ import axios from "axios";
 import { DOMAIN_URL } from "../../constants";
 // axios.defaults.withCredentials = true;
 
-export const fetchProducts = async () => {
-  console.log("Fetching Product");
+export const fetchProducts = async ({ queryKey }) => {
+  // console.log("Fetching Product");
+  const page = queryKey.find((item) => typeof item === "object")?.page || 0;
+
   try {
-    const response = await axios.get(`${DOMAIN_URL}products?limit=8&skip=10`);
+    const response = await axios.get(
+      `${DOMAIN_URL}products?limit=8&skip=${page}`
+    );
     const products = await response.data;
-    console.log("Products: ", products);
     return products;
   } catch (error) {
     console.error("Error fetching product:", error);
@@ -16,11 +19,10 @@ export const fetchProducts = async () => {
 };
 
 export const fetchProductById = async (productId) => {
-  console.log("Fetching Product");
+  // console.log("Fetching Product");
   try {
     const response = await axios.get(`${DOMAIN_URL}products/${productId}`);
     const product = response.data;
-    console.log("Product: ", product);
     return product;
   } catch (error) {
     console.error("Error fetching product:", error);
