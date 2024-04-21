@@ -27,6 +27,13 @@ const Hero = () => {
               >
                 Shop Now
               </Link>
+
+              <Link
+                to="/home-one/"
+                className="ml-2 mt-10 md:mb-6 lg:mt-10 inline-block border border-black px-10 py-3 text-center text-base font-medium uppercase tracking-wide hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-500"
+              >
+                Topico Home
+              </Link>
             </div>
           </div>
 

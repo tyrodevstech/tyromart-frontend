@@ -4,13 +4,17 @@ import Home from "../pages/home/Home";
 import Footer from "../components/layout/footer";
 import Header from "../components/layout/Header/Header";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import ProductDetails from "@/pages/ProductDetailsPage";
-import Products from "@/pages/Products/Products";
+import ProductDetails from "../pages/ProductDetailsPage";
+import Products from "../pages/Products/Products";
+
+
+// Topico Links Elements
+import HomeOne from "../pages/Home-1/Index";
 
 const AppRoutes = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -19,8 +23,11 @@ const AppRoutes = () => {
         />
         <Route path="/products/" element={<Products />} />
         <Route path="*" element={<NotFoundPage />} />
+
+        {/* Topic Designs Paths */}
+        <Route path="/home-one/" element={<HomeOne />}/>
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

@@ -6,9 +6,9 @@ import { Pagination } from "@nextui-org/react";
 import ProductCard from "../../components/product/card/ProductCard";
 import { fetchProducts } from "../../api/products/api";
 import { useQuery } from "react-query";
-import ProductsFilter from "@/components/product/list/ProductsFilter";
+import ProductsFilter from "../../components/product/list/ProductsFilter";
 import { Spinner } from "@nextui-org/react";
-import ProductCardSkeleton from "@/components/product/card/ProductCardSkeleton";
+import ProductCardSkeleton from "../../components/product/card/ProductCardSkeleton";
 
 const Products = () => {
   const [page, setPage] = useState(0);

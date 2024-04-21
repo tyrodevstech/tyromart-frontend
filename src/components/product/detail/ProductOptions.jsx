@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ToggleGroup, ToggleItem } from "@/components/ui/ToggleGroup";
+import { ToggleGroup, ToggleItem } from "../../../components/ui/ToggleGroup";
 import { Check } from "lucide-react";
 
 const ProductOptions = ({

@@ -47,7 +47,7 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
         <div className="product-description text-center p-4">
-          <h5 className="product-title font-semibold text-lg text-slate-800 line-clamp-1 capitalize">
+          <h5 className="product-title font-semibold text-lg text-slate-800 line-clamp-1 capitalize text-re">
             {title}
           </h5>
           <p className="price text-base font-medium text-slate-500">${price}</p>
