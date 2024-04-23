@@ -1,7 +1,7 @@
 import React from "react";
 
-import NavItem from "../../../components/nav-parts/NavItem";
-import ItemContent from "../../../components/nav-parts/ItemContent";
+import NavItem from "./nav-parts/NavItem";
+import ItemContent from "./nav-parts/ItemContent";
 
 const NavBar = () => {
   return (
@@ -10,7 +10,7 @@ const NavBar = () => {
         <div className="flex items-center justify-between font-rubik">
           <div className="flex items-center gap-6 lg:gap-12">
             <div className="button-icon text-gray-700 lg:hidden cursor-pointer">
-              <i class="fa-solid fa-bars"></i>
+              <i className="fa-solid fa-bars"></i>
             </div>
 
             <div className="hidden md:flex gap-6">
@@ -24,7 +24,6 @@ const NavBar = () => {
               <NavItem href="/products/">About Us</NavItem>
               <NavItem href="#">Contact</NavItem>
             </div>
-
           </div>
 
           <button
