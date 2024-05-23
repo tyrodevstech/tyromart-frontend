@@ -1,4 +1,3 @@
-const { nextui } = require("@nextui-org/react");
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
@@ -22,10 +21,15 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        rubik: "'Rubik', sans-serif",
+        jost: "Jost, sans-serif",
+        rubik: "Rubik, sans-serif",
       },
       colors: {
-        primary: "#fcb700",
+        text: "hsl(var(--color-text) / <alpha-value>)",
+        background: "hsl(var(--color-background) / <alpha-value>)",
+        primary: "hsl(var(--color-primary) / <alpha-value>)",
+        secondary: "hsl(var(--color-secondary) / <alpha-value>)",
+        accent: "hsl(var(--color-accent) / <alpha-value>)",
       },
     },
   },
@@ -62,6 +66,5 @@ module.exports = {
       });
     },
     require("tailwindcss-animate"),
-    nextui(),
   ],
 };
