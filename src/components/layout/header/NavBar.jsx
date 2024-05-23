@@ -1,19 +1,21 @@
 import React from "react";
+import {TbHeadset} from "react-icons/tb";
 
 import NavItem from "./nav-parts/NavItem";
 import ItemContent from "./nav-parts/ItemContent";
 
+import SideBar from "./SideBar";
+
 const NavBar = () => {
   return (
-    <div className="nav-bar bg-white shadow-sm md:block">
-      <div className="container py-2.5">
-        <div className="flex items-center justify-between font-rubik">
-          <div className="flex items-center gap-6 lg:gap-12">
-            <div className="button-icon text-gray-700 lg:hidden cursor-pointer">
-              <i className="fa-solid fa-bars"></i>
-            </div>
+    <div className="nav-bar hidden bg-white shadow-sm lg:block">
+      <div className="container py-6">
+        <div className="flex items-center justify-between gap-12 font-rubik">
+          <div className="w-3/12">
+            <SideBar/>
+          </div>
 
-            <div className="hidden md:flex gap-6">
+          <div className="w-7/12 flex items-center gap-8">
               <NavItem href="/home-one/">Home</NavItem>
               <NavItem href="#" NavItemContent={ItemContent}>
                 Features
@@ -23,15 +25,13 @@ const NavBar = () => {
               </NavItem>
               <NavItem href="/products/">About Us</NavItem>
               <NavItem href="#">Contact</NavItem>
-            </div>
           </div>
 
-          <button
-            type="button"
-            className="cursor-pointer text-gray-600 font-semibold border-none bg-primary hover:text-white duration-300 focus:outline-none focus:ring-4 focus:ring-yellow-300 rounded-full text-sm px-6 py-2.5 text-center"
-          >
-            My Account
-          </button>
+          <div className="w-2/12 flex items-center justify-end gap-1">
+            <TbHeadset strokeWidth={2} className="text-xl text-gray-700"/>
+            <p className="font-rubik text-sm text-gray-700"> Hotline <b>(364) 106 7572</b></p>
+          </div>
+
         </div>
       </div>
     </div>

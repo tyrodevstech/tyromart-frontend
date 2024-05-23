@@ -12,7 +12,7 @@ const NavItem = ({ children, href, NavItemContent }) => {
       onMouseLeave={() => setOpen(false)}
       className="relative w-fit h-fit"
     >
-      <Link to={href} className="relative font-rubik text-gray-700 text-base font-semibold no-underline uppercase">
+      <Link to={href} className="relative font-rubik text-sm font-semibold no-underline uppercase">
         {children}
         {NavItemContent ? <i className="fa-solid fa-angle-down ml-2  text-base"></i> : ""}
         <span
@@ -31,7 +31,7 @@ const NavItem = ({ children, href, NavItemContent }) => {
             exit={{ opacity: 0, y: 15 }}
             style={{ translateX: "-50%" }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="absolute left-1/2 top-11 bg-white text-black"
+            className="absolute z-10 left-1/2 top-[3.2rem] bg-white text-black"
           >
             <div className="absolute -top-6 left-0 right-0 h-6 bg-transparent" />
             <NavItemContent />
